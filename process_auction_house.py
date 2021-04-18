@@ -63,12 +63,19 @@ def main():
         print("Default auction house selected: https://www.easyliveauction.com/auctioneers/2020auctions/")
         auction_house_url = "https://www.easyliveauction.com/auctioneers/2020auctions/"
 
-    # set auction links, first command line argument 
-    if arguments == 2: 
+    # set auction resilience, second command line argument 
+    if arguments >= 2 and sys.argv[2].lower() == "y": 
         resilience = True
     else: 
         print("Default resilience = False")
         resilience = False   
+    
+    # set auction resilience, third command line argument 
+    if arguments == 3 and sys.argv[3].lower() == "y": 
+        background = True
+    else: 
+        print("Default resilience = False")
+        background = False   
 
     # database name 
     database = r"pythonsqlite.db"
@@ -144,7 +151,7 @@ def main():
                 auction = ''.join(auction)
 
             # process products from auctions 
-            product_df = scrapeAuction.main(auction)
+            product_df = scrapeAuction.main(auction,background)
 
             # save reuslts to the product data base 
             product_df.to_sql('products', conn, if_exists='append', index=False)

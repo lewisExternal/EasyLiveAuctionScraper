@@ -77,7 +77,7 @@ def first_item(driver):
         sys.exit 
 
 
-def main(url):
+def main(url,background):
 
     # get driver 
     #driver = webdriver.Chrome(ChromeDriverManager().install())
@@ -96,10 +96,12 @@ def main(url):
     item_array = []
     result_array = []
 
-    # revolve round the loop unil the lot number reachers zero, then stop
-    spinner = Halo(text='Processing Products', spinner='dots')
-    spinner.start()
+    # spinner to show the script is running only if not in the background 
+    if background == False:
+        spinner = Halo(text='Processing Products', spinner='dots')
+        spinner.start()
     
+    # revolve round the loop unil the lot number reachers zero, then stop
     while x != 0:
 
         # scrape product values 
@@ -111,7 +113,9 @@ def main(url):
         next_page(driver)
         x = get_itemno(driver)
     
-    spinner.stop()
+    if background == False:
+        spinner.stop()
+    
     driver.quit()
 
     df = pd.DataFrame(data=result_array, columns=["itemno", "price","desc","img","date","url"])

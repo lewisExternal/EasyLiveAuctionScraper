@@ -5,14 +5,16 @@ Get product information from the domain easyliveauction.com
 Script takes two command line arguments 
 
 >1. (Optional) auction_link_url i.e 'https://www.easyliveauction.com/auctioneers/2020auctions/' [default]
->2. (Optional) resilience i.e 'y' 
+>2. (Optional) resilience i.e 'y' [must have a first argument also] 
+>2. (Optional) background i.e 'y' [must have a second and first argument also]
 
 Select the auction house from the following https://www.easyliveauction.com/auctioneers/, insert into the first parameter.  
-Existence of the second argument will mean the auctions table will not be populated. 
+Existence of the second argument 'y' will mean the auctions table will not be populated, instead will be read from the DB. 
+Existence of the thrind argument will mean the 
 
-i.e to run in resilience mode 
+i.e to run in resilience mode in the background, please see the below.
 
-> ./run_script.sh https://www.easyliveauction.com/auctioneers/2020auctions/ y 
+> ./run_script.sh https://www.easyliveauction.com/auctioneers/2020auctions/ y y
 
 ## Results 
 
@@ -33,7 +35,7 @@ Stored in a sqlite DB, hard coded as pythonsqlite.db. Schemas can be seen below.
                                     img text,
                                     date text,
                                     url text 
-                                );""
+                                );"""
 
 
 ## Requirements 
@@ -45,4 +47,4 @@ Needs Python-3.8.5 or later
 No unit tests as yet 
 
 ## TO DO 
-N/A 
+Sort encoding issues 
