@@ -8,9 +8,11 @@ Script takes two command line arguments
 >2. (Optional) resilience i.e 'y' [must have a first argument also] 
 >2. (Optional) background i.e 'y' [must have a second and first argument also]
 
->1.Select the auction house from the following https://www.easyliveauction.com/auctioneers/, insert into the first parameter.  
->2.Existence of the second argument 'y' will mean the auctions will not be looked up, instead will be read from the DB. 
->3.Existence of the third argument will mean the script is run as a background process. 
+>1. Select the auction house from the following https://www.easyliveauction.com/auctioneers/, insert into the first parameter.  
+
+>2. Existence of the second argument 'y' will mean the auctions will not be looked up, instead will be read from the DB. 
+
+>3. Existence of the third argument will mean the script is run as a background process. 
 
 i.e to run in resilience mode in the background, please see the below.
 
