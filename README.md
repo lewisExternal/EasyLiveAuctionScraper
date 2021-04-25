@@ -14,7 +14,7 @@ Script takes two command line arguments
 
 >3. Existence of the third argument will mean the script is run as a background process. 
 
-i.e to run in resilience mode in the background, please see the below.
+i.e to run not in resilience mode and in the background, please see the below.
 
 > ./run_script.sh https://www.easyliveauction.com/auctioneers/2020auctions/ n y
 
